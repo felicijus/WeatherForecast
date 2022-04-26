@@ -1,5 +1,7 @@
 package com.example.weatherforecast
 
+import WeatherViewModelFactory
+import android.app.Application
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +13,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.androidweatherforecast.Database.WeatherRepository
+import com.example.weatherforecast.database.WeatherDAO
 import com.example.weatherforecast.databinding.FragmentFirstBinding
 import com.example.weatherforecast.view.CountViewModel
 import com.example.weatherforecast.view.WeatherListAdapter
@@ -27,7 +31,10 @@ class FirstFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private val weatherViewModel:WeatherViewModel by activityViewModels()
+    private val weatherViewModel:WeatherViewModel by activityViewModels {
+        WeatherViewModelFactory((activity?.application as WeathersApplication).repository)
+    }
+
     private val countViewModel: CountViewModel by activityViewModels()
 
     override fun onCreateView(

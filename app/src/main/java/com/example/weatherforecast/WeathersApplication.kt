@@ -8,6 +8,7 @@ import kotlinx.coroutines.SupervisorJob
 
 class WeathersApplication : Application() {
 
+
     val applicationScope = CoroutineScope(SupervisorJob())
 
     // Using by lazy so the database and the repository are only created when they're needed

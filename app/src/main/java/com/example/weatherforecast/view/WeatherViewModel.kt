@@ -6,16 +6,16 @@ import com.example.weatherforecast.database.Weather
 import com.example.weatherforecast.model.DummyData
 
 
-/*class WeatherViewModel(private val repository: WeatherRepository): ViewModel() {
+class WeatherViewModel(private val repository: WeatherRepository): ViewModel() {
 
     val weathers: LiveData<List<Weather>> = repository.allWeather.asLiveData()
 
     suspend fun insert(weather: Weather) = viewModelScope.let {
         repository.insert(weather)
     }
-}*/
+}
 
-class WeatherViewModel: ViewModel() {
+/*class WeatherViewModel: ViewModel() {
 
     private var _weathers = MutableLiveData<List<Weather>>()
 
@@ -25,4 +25,4 @@ class WeatherViewModel: ViewModel() {
     init {
         _weathers.value = DummyData.createData()
     }
-}
+}*/
