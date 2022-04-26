@@ -1,11 +1,19 @@
 package com.example.weatherforecast.view
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import com.example.androidweatherforecast.Database.WeatherRepository
 import com.example.weatherforecast.database.Weather
 import com.example.weatherforecast.model.DummyData
 
+
+/*class WeatherViewModel(private val repository: WeatherRepository): ViewModel() {
+
+    val weathers: LiveData<List<Weather>> = repository.allWeather.asLiveData()
+
+    suspend fun insert(weather: Weather) = viewModelScope.let {
+        repository.insert(weather)
+    }
+}*/
 
 class WeatherViewModel: ViewModel() {
 

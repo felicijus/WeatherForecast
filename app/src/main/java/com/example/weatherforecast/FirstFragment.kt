@@ -5,12 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.weatherforecast.databinding.FragmentFirstBinding
+import com.example.weatherforecast.view.CountViewModel
 import com.example.weatherforecast.view.WeatherListAdapter
 import com.example.weatherforecast.view.WeatherViewModel
 
@@ -25,6 +27,8 @@ class FirstFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    private val weatherViewModel:WeatherViewModel by activityViewModels()
+    private val countViewModel: CountViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,8 +40,6 @@ class FirstFragment : Fragment() {
 
     }
 
-    private val weatherViewModel: WeatherViewModel by activityViewModels()
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -47,8 +49,17 @@ class FirstFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        weatherViewModel.weathers.observe(viewLifecycleOwner) { items ->
+        weatherViewModel.weathers.observe(viewLifecycleOwner, Observer { items ->
             items.let { adapter.submitList(it) }
+        })
+
+
+        //CountViewModel
+        binding.buttonMaterial.text = countViewModel.count.toString()
+
+        binding.buttonMaterial.setOnClickListener {
+            countViewModel.update()
+            binding.buttonMaterial.text = countViewModel.count.toString()
         }
 
 
