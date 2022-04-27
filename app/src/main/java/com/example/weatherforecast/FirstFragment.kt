@@ -1,22 +1,16 @@
 package com.example.weatherforecast
 
 import WeatherViewModelFactory
-import android.app.Application
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.androidweatherforecast.Database.WeatherRepository
-import com.example.weatherforecast.database.Weather
-import com.example.weatherforecast.database.WeatherDAO
 import com.example.weatherforecast.databinding.FragmentFirstBinding
 import com.example.weatherforecast.view.CountViewModel
 import com.example.weatherforecast.view.WeatherListAdapter
@@ -46,23 +40,23 @@ class FirstFragment : Fragment() {
 
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        //RecyclerView
         val recyclerView = binding.recyclerView
         val adapter = WeatherListAdapter()
         recyclerView.adapter = adapter
         recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
 
+        //recyclerView.addItemDecoration(DividerItemDecoration())
+
         weatherViewModel.weathers.observe(viewLifecycleOwner, Observer { items ->
             items.let { adapter.submitList(it) }
         })
 
-        weatherViewModel.insert(Weather(2,"11","Rainy"))
 
 
         //CountViewModel

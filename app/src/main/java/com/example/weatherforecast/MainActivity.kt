@@ -11,8 +11,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.activityViewModels
 import com.example.weatherforecast.database.Weather
 import com.example.weatherforecast.databinding.ActivityMainBinding
 import com.example.weatherforecast.view.WeatherViewModel
