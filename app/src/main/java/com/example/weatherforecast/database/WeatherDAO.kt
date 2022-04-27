@@ -8,7 +8,6 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface WeatherDAO {
 
-
     @Query("SELECT * FROM Weather")
     fun getWeather(): Flow<List<Weather>>
 
@@ -17,4 +16,6 @@ interface WeatherDAO {
 
     @Query("DELETE FROM Weather")
     suspend fun deleteAll()
+
+    //
 }

@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Weather(
-    @PrimaryKey(autoGenerate = true) val id: Int?,//nullable?
+    @PrimaryKey(autoGenerate = true) val id: Long?,//nullable?
     @ColumnInfo(name = "temp") val temp: String?,
     @ColumnInfo(name = "summmary") val summary: String?
 )

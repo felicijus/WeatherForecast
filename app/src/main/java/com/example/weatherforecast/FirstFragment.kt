@@ -12,8 +12,10 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.androidweatherforecast.Database.WeatherRepository
+import com.example.weatherforecast.database.Weather
 import com.example.weatherforecast.database.WeatherDAO
 import com.example.weatherforecast.databinding.FragmentFirstBinding
 import com.example.weatherforecast.view.CountViewModel
@@ -54,11 +56,13 @@ class FirstFragment : Fragment() {
         val recyclerView = binding.recyclerView
         val adapter = WeatherListAdapter()
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
 
         weatherViewModel.weathers.observe(viewLifecycleOwner, Observer { items ->
             items.let { adapter.submitList(it) }
         })
+
+        weatherViewModel.insert(Weather(2,"11","Rainy"))
 
 
         //CountViewModel
