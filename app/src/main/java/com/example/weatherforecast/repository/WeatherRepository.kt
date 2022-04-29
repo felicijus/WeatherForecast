@@ -20,4 +20,8 @@ class WeatherRepository(private val weatherDao: WeatherDAO)
     suspend fun insert(weather: Weather) {
         weatherDao.insert(weather)
     }
+
+    suspend fun deleteAll(){
+        weatherDao.deleteAll()
+    }
 }
