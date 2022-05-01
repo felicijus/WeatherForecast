@@ -7,10 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.weatherforecast.databinding.FragmentSecondBinding
-import com.example.weatherforecast.view.CountViewModel
 import com.example.weatherforecast.view.WeatherViewModel
 
 /**
@@ -24,7 +22,6 @@ class SecondFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private val countViewModel: CountViewModel by activityViewModels()
 
     private val weatherViewModel: WeatherViewModel by activityViewModels{
         WeatherViewModelFactory((activity?.application as WeathersApplication).repository)
@@ -43,18 +40,14 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonCount.text = countViewModel.count.toString()
 
-        binding.buttonCount.setOnClickListener {
-            countViewModel.update()
-            binding.buttonCount.text = countViewModel.count.toString()
-
-            weatherViewModel.deleteAll()
-
-        }
 
         binding.buttonSecond.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+        }
+
+        binding.buttonDeleteAll.setOnClickListener {
+            weatherViewModel.deleteAll()
         }
     }
 

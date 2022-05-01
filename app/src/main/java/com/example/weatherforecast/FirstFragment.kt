@@ -9,10 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.weatherforecast.databinding.FragmentFirstBinding
-import com.example.weatherforecast.view.CountViewModel
 import com.example.weatherforecast.view.WeatherListAdapter
 import com.example.weatherforecast.view.WeatherViewModel
 
@@ -31,7 +29,6 @@ class FirstFragment : Fragment() {
         WeatherViewModelFactory((activity?.application as WeathersApplication).repository)
     }
 
-    private val countViewModel: CountViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,22 +48,11 @@ class FirstFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
 
-        //recyclerView.addItemDecoration(DividerItemDecoration())
+
 
         weatherViewModel.weathers.observe(viewLifecycleOwner, Observer { items ->
             items.let { adapter.submitList(it) }
         })
-
-
-
-        //CountViewModel
-        binding.buttonMaterial.text = countViewModel.count.toString()
-
-        binding.buttonMaterial.setOnClickListener {
-            countViewModel.update()
-            binding.buttonMaterial.text = countViewModel.count.toString()
-        }
-
 
 
         binding.buttonFirst.setOnClickListener {

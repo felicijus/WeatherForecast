@@ -39,11 +39,9 @@ class MainActivity : AppCompatActivity() {
         binding.fab.setOnClickListener { view ->
             /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()*/
-            //weatherViewModel.insert(Weather(null,"11","Rainy"))
-
 
             val weatherDialogFragment = WeatherDialogFragment()
-            weatherDialogFragment.show(supportFragmentManager,"Test")
+            weatherDialogFragment.show(supportFragmentManager,"weatherDialog")
 
         }
     }
