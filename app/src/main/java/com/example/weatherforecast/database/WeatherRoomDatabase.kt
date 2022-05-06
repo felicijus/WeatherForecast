@@ -52,12 +52,26 @@ abstract class WeatherRoomDatabase: RoomDatabase() {
 
     }
         suspend fun populateDatabase(weatherDao: WeatherDAO) {
-            // Delete all content here.
+            // Delete all content here
             weatherDao.deleteAll()
 
-            // Add sample words.
+            // Add sample weather data
             var weather = Weather(1,"23","Sunny")
             weatherDao.insert(weather)
+
+            var weatherList: List<Weather>
+            weatherList = arrayListOf(
+                Weather(null, "29", "Hot"),
+                Weather(null, "19", "Rainy"),
+                Weather(null, "0", "Cold"),
+                Weather(null, "15", "Mild"),
+                Weather(null, "45", "Extremely Hot"),
+                Weather(null, "90", "Dead"),
+                Weather(null, "-10", "Winter"),
+                Weather(null, "-3", "Snowy"),
+                Weather(null, "4", "Brown Snow"),
+            )
+            weatherDao.insertList(weatherList)
         }
     }
 }

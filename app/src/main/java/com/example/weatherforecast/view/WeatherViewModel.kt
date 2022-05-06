@@ -17,4 +17,8 @@ class WeatherViewModel(private val repository: WeatherRepository): ViewModel() {
     fun deleteAll() = viewModelScope.launch {
         repository.deleteAll()
     }
+
+    fun delete(weather: Weather) = viewModelScope.launch {
+        repository.delete(weather)
+    }
 }

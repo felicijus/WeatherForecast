@@ -5,11 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.weatherforecast.database.Weather
 import com.example.weatherforecast.databinding.FragmentFirstBinding
 import com.example.weatherforecast.view.WeatherListAdapter
 import com.example.weatherforecast.view.WeatherViewModel
@@ -17,7 +19,7 @@ import com.example.weatherforecast.view.WeatherViewModel
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class FirstFragment : Fragment() {
+class FirstFragment : Fragment(){
 
     private var _binding: FragmentFirstBinding? = null
 
@@ -49,6 +51,15 @@ class FirstFragment : Fragment() {
         recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
 
 
+        adapter.setOnItemLongClickListener(object :WeatherListAdapter.OnItemLongClickListener{
+            override fun setOnItemLongClickListener(position: Int) {
+                Toast.makeText(requireContext(), "Delete Weather with Id "+ adapter.currentList[position].id.toString() , Toast.LENGTH_SHORT).show()
+                weatherViewModel.delete(adapter.currentList[position] as Weather)
+            }
+
+        })
+
+
 
         weatherViewModel.weathers.observe(viewLifecycleOwner, Observer { items ->
             items.let { adapter.submitList(it) }
@@ -64,4 +75,5 @@ class FirstFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }
