@@ -59,8 +59,7 @@ abstract class WeatherRoomDatabase: RoomDatabase() {
             var weather = Weather(1,"23","Sunny")
             weatherDao.insert(weather)
 
-            var weatherList: List<Weather>
-            weatherList = arrayListOf(
+            var weatherList: List<Weather> = listOf(
                 Weather(null, "29", "Hot"),
                 Weather(null, "19", "Rainy"),
                 Weather(null, "0", "Cold"),

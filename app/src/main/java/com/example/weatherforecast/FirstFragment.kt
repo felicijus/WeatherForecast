@@ -51,10 +51,20 @@ class FirstFragment : Fragment(){
         recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
 
 
-        adapter.setOnItemLongClickListener(object :WeatherListAdapter.OnItemLongClickListener{
+        adapter.setOnItemLongClickListener(object:WeatherListAdapter.OnItemLongClickListener{
             override fun setOnItemLongClickListener(position: Int) {
                 Toast.makeText(requireContext(), "Delete Weather with Id "+ adapter.currentList[position].id.toString() , Toast.LENGTH_SHORT).show()
                 weatherViewModel.delete(adapter.currentList[position] as Weather)
+
+                adapter.notifyItemRemoved(position)
+            }
+        })
+
+        adapter.setOnItemClickListener(object:WeatherListAdapter.OnItemClickListener{
+            override fun setOnItemClickListener(position: Int) {
+                Toast.makeText(requireContext(), "Update Weather with Id "+ adapter.currentList[position].id.toString() , Toast.LENGTH_SHORT).show()
+
+                adapter.notifyItemChanged(position)
             }
 
         })
@@ -64,7 +74,6 @@ class FirstFragment : Fragment(){
         weatherViewModel.weathers.observe(viewLifecycleOwner, Observer { items ->
             items.let { adapter.submitList(it) }
         })
-
 
         binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
