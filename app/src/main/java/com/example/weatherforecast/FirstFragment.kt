@@ -64,6 +64,9 @@ class FirstFragment : Fragment(){
             override fun setOnItemClickListener(position: Int) {
                 Toast.makeText(requireContext(), "Update Weather with Id "+ adapter.currentList[position].id.toString() , Toast.LENGTH_SHORT).show()
 
+                val weatherDialogFragment = WeatherUpdateDialogFragment(adapter.currentList[position] as Weather)
+                weatherDialogFragment.show(parentFragmentManager,"weatherUpdateDialog")
+
                 adapter.notifyItemChanged(position)
             }
 

@@ -1,6 +1,6 @@
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.androidweatherforecast.Database.WeatherRepository
+import com.example.weatherforecast.repository.WeatherRepository
 import com.example.weatherforecast.view.WeatherViewModel
 
 

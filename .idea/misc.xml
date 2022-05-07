@@ -11,6 +11,8 @@
         <entry key="..\:/Users/Felix/Programme/Software/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/fragment_second.xml" value="0.4053442028985507" />
         <entry key="..\:/Users/Felix/Programme/Software/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/fragment_weather.xml" value="0.2726449275362319" />
         <entry key="..\:/Users/Felix/Programme/Software/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/fragment_weatherdialog.xml" value="0.5" />
+        <entry key="..\:/Users/Felix/Programme/Software/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/fragment_weatherinsertdialog.xml" value="0.2" />
+        <entry key="..\:/Users/Felix/Programme/Software/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/fragment_weatherupdatedialog.xml" value="0.264" />
         <entry key="..\:/Users/Felix/Programme/Software/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/item_weather.xml" value="0.33" />
         <entry key="..\:/Users/Felix/Programme/Software/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/recycler_view_item.xml" value="0.2726449275362319" />
       </map>

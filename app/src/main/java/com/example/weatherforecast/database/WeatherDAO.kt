@@ -17,8 +17,12 @@ interface WeatherDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(weather: Weather)
 
+    //Only for populateDatabase()
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertList(weatherList: List<Weather>)
+
+    @Update(onConflict = OnConflictStrategy.ABORT)
+    suspend fun update(weather: Weather)
 
     @Delete
     suspend fun delete(weather: Weather)

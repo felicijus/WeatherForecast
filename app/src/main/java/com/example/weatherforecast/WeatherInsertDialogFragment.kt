@@ -8,13 +8,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import com.example.weatherforecast.database.Weather
-import com.example.weatherforecast.databinding.FragmentWeatherdialogBinding
+import com.example.weatherforecast.databinding.FragmentWeatherinsertdialogBinding
 import com.example.weatherforecast.view.WeatherViewModel
 
 
-class WeatherDialogFragment : DialogFragment() {
+class WeatherInsertDialogFragment : DialogFragment() {
 
-    private var _binding: FragmentWeatherdialogBinding? = null
+    private var _binding: FragmentWeatherinsertdialogBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -35,9 +35,9 @@ class WeatherDialogFragment : DialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        _binding = FragmentWeatherdialogBinding.inflate(inflater, container, false)
+        _binding = FragmentWeatherinsertdialogBinding.inflate(inflater, container, false)
         return binding.root
     }
 

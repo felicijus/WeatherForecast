@@ -1,7 +1,7 @@
 package com.example.weatherforecast
 
 import android.app.Application
-import com.example.androidweatherforecast.Database.WeatherRepository
+import com.example.weatherforecast.repository.WeatherRepository
 import com.example.weatherforecast.database.WeatherRoomDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob

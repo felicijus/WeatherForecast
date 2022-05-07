@@ -1,4 +1,4 @@
-package com.example.androidweatherforecast.Database
+package com.example.weatherforecast.repository
 
 import android.app.Application
 import androidx.annotation.WorkerThread
@@ -19,6 +19,10 @@ class WeatherRepository(private val weatherDao: WeatherDAO)
     @WorkerThread
     suspend fun insert(weather: Weather) {
         weatherDao.insert(weather)
+    }
+
+    suspend fun update(weather: Weather){
+        weatherDao.update(weather)
     }
 
     suspend fun deleteAll(){
