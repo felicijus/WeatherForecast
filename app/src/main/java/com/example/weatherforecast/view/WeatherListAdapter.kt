@@ -16,8 +16,9 @@ import com.example.weatherforecast.database.Weather
 
 class WeatherListAdapter: ListAdapter<Weather, WeatherListAdapter.WeatherViewHolder>(WeathersComparator()) {
 
-    private lateinit var weatherItemLongClickListener: OnItemLongClickListener
     private lateinit var weatherItemClickListener: OnItemClickListener
+    private lateinit var weatherItemLongClickListener: OnItemLongClickListener
+
 
 
     class WeatherViewHolder(itemView: View, weatherItemClickListener: OnItemClickListener, weatherItemLongClickListener: OnItemLongClickListener) : RecyclerView.ViewHolder(itemView){
@@ -45,6 +46,8 @@ class WeatherListAdapter: ListAdapter<Weather, WeatherListAdapter.WeatherViewHol
         }
     }
 
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WeatherViewHolder {
 
         val weatherViewHolder:WeatherViewHolder = WeatherViewHolder.create(parent,weatherItemClickListener ,weatherItemLongClickListener)
@@ -64,6 +67,7 @@ class WeatherListAdapter: ListAdapter<Weather, WeatherListAdapter.WeatherViewHol
         holder.temp.text = current.temp
         holder.summary.text = current.summary
     }
+
 
 
     //ClickListener

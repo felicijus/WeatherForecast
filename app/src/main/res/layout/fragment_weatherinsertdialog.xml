@@ -33,18 +33,18 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
-                android:text="Create new Weather"
+                android:text="@string/weather_insert_dialog_textHead"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textDiscribtion"
+                android:id="@+id/textDescribtion"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:text="In this dialog, you can create a new Weather"
+                android:text="@string/weather_insert_dialog_textDescribtion"
                 android:textSize="10sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/textHead"
@@ -60,7 +60,7 @@
                 android:background="?android:attr/listDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textDiscribtion" />
+                app:layout_constraintTop_toBottomOf="@+id/textDescribtion" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/dialog_temp"
@@ -77,7 +77,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Temperature"
+                    android:hint="@string/temperature"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -96,7 +96,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Summary"
+                    android:hint="@string/summary"
                     android:inputType="text" />
             </com.google.android.material.textfield.TextInputLayout>
 

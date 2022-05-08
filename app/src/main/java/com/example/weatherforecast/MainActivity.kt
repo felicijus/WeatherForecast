@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
+    //not used -> but ViewModel access in Activity with application wide context
     private val weatherViewModel: WeatherViewModel by viewModels {
         WeatherViewModelFactory((application as WeathersApplication).repository)
     }
@@ -34,13 +35,11 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        binding.fab.setOnClickListener { view ->
+        binding.fab.setOnClickListener {
             /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()*/
-
             val weatherDialogFragment = WeatherInsertDialogFragment()
             weatherDialogFragment.show(supportFragmentManager,"weatherInsertDialog")
-
         }
     }
 

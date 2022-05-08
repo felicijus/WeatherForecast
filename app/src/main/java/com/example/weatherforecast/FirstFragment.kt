@@ -32,11 +32,11 @@ class FirstFragment : Fragment(){
     }
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-
+    ): View {
         _binding = FragmentFirstBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -50,16 +50,6 @@ class FirstFragment : Fragment(){
         recyclerView.adapter = adapter
         recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
 
-
-        adapter.setOnItemLongClickListener(object:WeatherListAdapter.OnItemLongClickListener{
-            override fun setOnItemLongClickListener(position: Int) {
-                Toast.makeText(requireContext(), "Delete Weather with Id "+ adapter.currentList[position].id.toString() , Toast.LENGTH_SHORT).show()
-                weatherViewModel.delete(adapter.currentList[position] as Weather)
-
-                adapter.notifyItemRemoved(position)
-            }
-        })
-
         adapter.setOnItemClickListener(object:WeatherListAdapter.OnItemClickListener{
             override fun setOnItemClickListener(position: Int) {
                 Toast.makeText(requireContext(), "Update Weather with Id "+ adapter.currentList[position].id.toString() , Toast.LENGTH_SHORT).show()
@@ -69,10 +59,16 @@ class FirstFragment : Fragment(){
 
                 adapter.notifyItemChanged(position)
             }
-
         })
 
+        adapter.setOnItemLongClickListener(object:WeatherListAdapter.OnItemLongClickListener{
+            override fun setOnItemLongClickListener(position: Int) {
+                Toast.makeText(requireContext(), "Delete Weather with Id "+ adapter.currentList[position].id.toString() , Toast.LENGTH_SHORT).show()
+                weatherViewModel.delete(adapter.currentList[position] as Weather)
 
+                adapter.notifyItemRemoved(position)
+            }
+        })
 
         weatherViewModel.weathers.observe(viewLifecycleOwner, Observer { items ->
             items.let { adapter.submitList(it) }
