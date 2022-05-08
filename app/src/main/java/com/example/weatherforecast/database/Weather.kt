@@ -8,5 +8,5 @@ import androidx.room.PrimaryKey
 data class Weather(
     @PrimaryKey(autoGenerate = true) val id: Long?,//nullable?
     @ColumnInfo(name = "temp") val temp: String?,
-    @ColumnInfo(name = "summmary") val summary: String?
+    @ColumnInfo(name = "summary") val summary: String?
 )

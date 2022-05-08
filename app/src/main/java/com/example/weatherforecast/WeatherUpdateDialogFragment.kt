@@ -1,6 +1,6 @@
 package com.example.weatherforecast
 
-import WeatherViewModelFactory
+import com.example.weatherforecast.model.WeatherViewModelFactory
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +9,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import com.example.weatherforecast.database.Weather
 import com.example.weatherforecast.databinding.FragmentWeatherupdatedialogBinding
-import com.example.weatherforecast.view.WeatherViewModel
+import com.example.weatherforecast.model.WeatherViewModel
 
 
 class WeatherUpdateDialogFragment(weather:Weather) : DialogFragment(){

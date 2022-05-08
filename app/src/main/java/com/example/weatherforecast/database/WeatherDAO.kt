@@ -13,7 +13,6 @@ interface WeatherDAO {
     suspend fun deleteAll()
 
 
-
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(weather: Weather)
 

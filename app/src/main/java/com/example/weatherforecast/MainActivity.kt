@@ -1,6 +1,6 @@
 package com.example.weatherforecast
 
-import WeatherViewModelFactory
+import com.example.weatherforecast.model.WeatherViewModelFactory
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -11,7 +11,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
 import com.example.weatherforecast.databinding.ActivityMainBinding
-import com.example.weatherforecast.view.WeatherViewModel
+import com.example.weatherforecast.model.WeatherViewModel
 
 class MainActivity : AppCompatActivity() {
 

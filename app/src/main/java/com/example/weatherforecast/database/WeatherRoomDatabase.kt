@@ -1,6 +1,5 @@
 package com.example.weatherforecast.database
 
-import android.app.Application
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
@@ -10,17 +9,18 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Database(entities = [Weather::class], version = 1, exportSchema = false)
-abstract class WeatherRoomDatabase: RoomDatabase() {
+abstract class WeatherRoomDatabase : RoomDatabase() {
 
-    abstract val weatherDAO:WeatherDAO
+    abstract val weatherDAO: WeatherDAO
 
-    companion object{
+    companion object {
 
         @Volatile
-        private var INSTANCE:WeatherRoomDatabase? = null
+        private var INSTANCE: WeatherRoomDatabase? = null
 
-        fun getDatabase(context: Context,
-                        scope: CoroutineScope
+        fun getDatabase(
+            context: Context,
+            scope: CoroutineScope
         ): WeatherRoomDatabase {
 
             return INSTANCE ?: synchronized(this) {
@@ -50,26 +50,17 @@ abstract class WeatherRoomDatabase: RoomDatabase() {
                 }
             }
 
-    }
+        }
+
         suspend fun populateDatabase(weatherDao: WeatherDAO) {
             // Delete all content here
             weatherDao.deleteAll()
 
             // Add sample weather data
-            var weather = Weather(1,"23","Sunny")
+            var weather = Weather(1, "23", "Sunny")
             weatherDao.insert(weather)
 
-            var weatherList: List<Weather> = listOf(
-                Weather(null, "29", "Hot"),
-                Weather(null, "19", "Rainy"),
-                Weather(null, "0", "Cold"),
-                Weather(null, "15", "Mild"),
-                Weather(null, "45", "Extremely Hot"),
-                Weather(null, "90", "Dead"),
-                Weather(null, "-10", "Winter"),
-                Weather(null, "-3", "Snowy"),
-                Weather(null, "4", "Brown Snow"),
-            )
+            var weatherList = DummyData.createData()
             weatherDao.insertList(weatherList)
         }
     }

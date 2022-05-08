@@ -1,6 +1,6 @@
 package com.example.weatherforecast
 
-import WeatherViewModelFactory
+import com.example.weatherforecast.model.WeatherViewModelFactory
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.weatherforecast.databinding.FragmentSecondBinding
-import com.example.weatherforecast.view.WeatherViewModel
+import com.example.weatherforecast.model.WeatherViewModel
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.

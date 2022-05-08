@@ -1,6 +1,6 @@
 package com.example.weatherforecast
 
-import WeatherViewModelFactory
+import com.example.weatherforecast.model.WeatherViewModelFactory
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.weatherforecast.database.Weather
 import com.example.weatherforecast.databinding.FragmentFirstBinding
 import com.example.weatherforecast.view.WeatherListAdapter
-import com.example.weatherforecast.view.WeatherViewModel
+import com.example.weatherforecast.model.WeatherViewModel
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -27,7 +27,7 @@ class FirstFragment : Fragment(){
     // onDestroyView.
     private val binding get() = _binding!!
 
-    private val weatherViewModel:WeatherViewModel by activityViewModels {
+    private val weatherViewModel: WeatherViewModel by activityViewModels {
         WeatherViewModelFactory((activity?.application as WeathersApplication).repository)
     }
 

@@ -1,4 +1,4 @@
-package com.example.weatherforecast.view
+package com.example.weatherforecast.model
 
 import androidx.lifecycle.*
 import com.example.weatherforecast.repository.WeatherRepository
@@ -18,11 +18,11 @@ class WeatherViewModel(private val repository: WeatherRepository): ViewModel() {
         repository.update(weather)
     }
 
-    fun deleteAll() = viewModelScope.launch {
-        repository.deleteAll()
-    }
-
     fun delete(weather: Weather) = viewModelScope.launch {
         repository.delete(weather)
+    }
+
+    fun deleteAll() = viewModelScope.launch {
+        repository.deleteAll()
     }
 }
