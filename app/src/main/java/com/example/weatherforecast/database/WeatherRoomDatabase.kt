@@ -49,7 +49,6 @@ abstract class WeatherRoomDatabase : RoomDatabase() {
                     populateDatabase(database.weatherDAO)
                 }
             }
-
         }
 
         suspend fun populateDatabase(weatherDao: WeatherDAO) {

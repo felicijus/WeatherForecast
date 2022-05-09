@@ -32,6 +32,4 @@ class WeatherRepository(private val weatherDao: WeatherDAO)
     suspend fun deleteAll(){
         weatherDao.deleteAll()
     }
-
-
 }
