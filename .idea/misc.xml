@@ -7,14 +7,16 @@
         <entry key="..\:/Users/Felix/Programme/Software/AndroidStudioProjects/WeatherForecast/app/src/main/res/drawable-v24/large_background_border.xml" value="0.1" />
         <entry key="..\:/Users/Felix/Programme/Software/AndroidStudioProjects/WeatherForecast/app/src/main/res/drawable/toolbar_background_border.xml" value="0.1" />
         <entry key="..\:/Users/Felix/Programme/Software/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/Users/Felix/Programme/Software/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/content_main.xml" value="0.1" />
         <entry key="..\:/Users/Felix/Programme/Software/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/fragment_first.xml" value="0.5" />
         <entry key="..\:/Users/Felix/Programme/Software/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/fragment_second.xml" value="0.4053442028985507" />
         <entry key="..\:/Users/Felix/Programme/Software/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/fragment_weather.xml" value="0.2726449275362319" />
         <entry key="..\:/Users/Felix/Programme/Software/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/fragment_weatherdialog.xml" value="0.5" />
-        <entry key="..\:/Users/Felix/Programme/Software/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/fragment_weatherinsertdialog.xml" value="0.2674772036474164" />
-        <entry key="..\:/Users/Felix/Programme/Software/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/fragment_weatherupdatedialog.xml" value="0.2674772036474164" />
+        <entry key="..\:/Users/Felix/Programme/Software/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/fragment_weatherinsertdialog.xml" value="0.2" />
+        <entry key="..\:/Users/Felix/Programme/Software/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/fragment_weatherupdatedialog.xml" value="0.264" />
         <entry key="..\:/Users/Felix/Programme/Software/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/item_weather.xml" value="0.33" />
         <entry key="..\:/Users/Felix/Programme/Software/AndroidStudioProjects/WeatherForecast/app/src/main/res/layout/recycler_view_item.xml" value="0.2726449275362319" />
+        <entry key="..\:/Users/Felix/Programme/Software/AndroidStudioProjects/WeatherForecast/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
       </map>
     </option>
   </component>

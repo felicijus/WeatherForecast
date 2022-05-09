@@ -18,14 +18,16 @@ class DummyData {
                 Weather(null, "4", "Brown Snow"),
             )
 
-
             weatherDummyList.add(Weather(null, "25", "Sunny"))
             weatherDummyList.add(Weather(null, "15", "Cloudy"))
             weatherDummyList.add(Weather(null, "10", "Rainy"))
             weatherDummyList.add(Weather(null, "-1", "Snowy"))
             weatherDummyList.add(Weather(null, "-9", "Very Cold"))
             weatherDummyList.add(Weather(null, "7", "April Weather"))
-
+            weatherDummyList.add(Weather(null, "9", "April Weather"))
+            weatherDummyList.add(Weather(null, "10", "April Weather"))
+            weatherDummyList.add(Weather(null, "19", "April Weather"))
+            weatherDummyList.add(Weather(null, "30", "April Weather"))
 
             return weatherDummyList
         }
