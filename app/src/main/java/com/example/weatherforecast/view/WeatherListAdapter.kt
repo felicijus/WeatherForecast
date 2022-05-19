@@ -64,8 +64,8 @@ class WeatherListAdapter: ListAdapter<Weather, WeatherListAdapter.WeatherViewHol
         val current = getItem(position)
 
         holder.id.text = current.id.toString()
-        holder.temp.text = current.temp
-        holder.summary.text = current.summary
+        holder.temp.text = current.temperature.toString()
+        holder.summary.text = current.condition
     }
 
 

@@ -47,11 +47,11 @@ class WeatherUpdateDialogFragment(weather:Weather) : DialogFragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.dialogTemp.placeholderText = _weather.temp
-        binding.dialogSummary.placeholderText = _weather.summary
+        binding.dialogTemp.placeholderText = _weather.temperature.toString()
+        binding.dialogSummary.placeholderText = _weather.condition
 
         binding.dialogBtnSave.setOnClickListener {
-            weatherViewModel.update(Weather(_weather.id, binding.dialogTemp.editText?.text.toString(), binding.dialogSummary.editText?.text.toString()))
+            weatherViewModel.update(Weather(_weather.id, Integer.parseInt(binding.dialogTemp.editText?.text.toString()), binding.dialogSummary.editText?.text.toString()))
             dismiss()
         }
         binding.dialogBtnAbort.setOnClickListener {

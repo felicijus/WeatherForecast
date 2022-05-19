@@ -45,7 +45,7 @@ class WeatherInsertDialogFragment : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.dialogBtnSave.setOnClickListener {
-            var weather = Weather(null, binding.dialogTemp.editText?.text.toString(), binding.dialogSummary.editText?.text.toString())
+            var weather = Weather(null, Integer.parseInt(binding.dialogTemp.editText?.text.toString()), binding.dialogSummary.editText?.text.toString())
             weatherViewModel.insert(weather)
             dismiss()
         }

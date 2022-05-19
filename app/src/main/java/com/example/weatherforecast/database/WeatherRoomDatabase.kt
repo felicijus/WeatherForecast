@@ -8,7 +8,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = [Weather::class], version = 1, exportSchema = false)
+@Database(entities = [Weather::class], version = 2, exportSchema = false)
 abstract class WeatherRoomDatabase : RoomDatabase() {
 
     abstract val weatherDAO: WeatherDAO
@@ -56,10 +56,10 @@ abstract class WeatherRoomDatabase : RoomDatabase() {
             weatherDao.deleteAll()
 
             // Add sample weather data
-            var weather = Weather(1, "23", "Sunny")
+            val weather = Weather(1, 23, "Sunny")
             weatherDao.insert(weather)
 
-            var weatherList = DummyData.createData()
+            val weatherList = DummyData.createData()
             weatherDao.insertList(weatherList)
         }
     }
