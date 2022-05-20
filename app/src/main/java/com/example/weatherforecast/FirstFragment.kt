@@ -48,7 +48,7 @@ class FirstFragment : Fragment(){
         val recyclerView = binding.recyclerView
         val adapter = WeatherListAdapter()
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
+        recyclerView.layoutManager = GridLayoutManager(requireContext(),1)
 
         adapter.setOnItemClickListener(object:WeatherListAdapter.OnItemClickListener{
             override fun setOnItemClickListener(position: Int) {
@@ -83,5 +83,4 @@ class FirstFragment : Fragment(){
         super.onDestroyView()
         _binding = null
     }
-
 }

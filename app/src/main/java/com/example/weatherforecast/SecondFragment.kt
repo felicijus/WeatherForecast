@@ -18,6 +18,9 @@ import com.example.weatherforecast.model.WeatherViewModelFactory
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 
 /**
@@ -58,7 +61,17 @@ class SecondFragment : Fragment() {
         }
 
         binding.buttonFetch.setOnClickListener {
-            val url = "https://api.brightsky.dev/weather?lat=52&lon=7.6&date=2022-05-17"
+
+            val currentDateTime = LocalDateTime.now()
+
+            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+            val formattedDateTime = currentDateTime.format(formatter)
+
+
+            //lat=50.9145917 lon=14.1342216
+            //url = "https://api.brightsky.dev/weather?lat=50.9145917&lon=14.1342216&date=2022-05-19"
+            val url =
+                "https://api.brightsky.dev/weather?lat=50.9145917&lon=14.1342216&date=$formattedDateTime"
 
             val jsonObjectRequest = JsonObjectRequest(
                 Request.Method.GET, url, null,
@@ -71,20 +84,35 @@ class SecondFragment : Fragment() {
                             val oneObject: JSONObject = weather.getJSONObject(i)
                             // Pulling items from the array
 
-                            val timestamp = oneObject.getString("timestamp")
-
                             binding.textviewSecond.text =
-                                "Response: %s".format(timestamp.toString())
+                                "Response: %s".format((response.getJSONArray("sources") as JSONArray).getJSONObject(0).optString("last_record"))
                             weatherViewModel.insert(
                                 Weather(
-                                    null,
-                                    oneObject.getString("temperature").toInt(),
-                                    oneObject.getString("condition").toString()
+                                    id = null,
+
+                                    timestamp = oneObject.optString("timestamp"),
+                                    source_id = oneObject.optInt("source_id"),
+                                    precipitation = oneObject.optString("precipitation"),
+                                    pressure_msl = oneObject.optDouble("pressure_msl"),
+                                    sunshine = oneObject.optInt("sunshine"),
+                                    temperature = oneObject.optDouble("temperature"),
+                                    wind_direction = oneObject.optInt("wind_direction"),
+                                    wind_speed = oneObject.optDouble("wind_speed"),
+                                    cloud_cover = oneObject.optInt("cloud_cover"),
+                                    dew_point = oneObject.optDouble("dew_point"),
+                                    relative_humidity = oneObject.optInt("relative_humidity"),
+                                    visibility = oneObject.optInt("visibility"),
+                                    wind_gust_direction = oneObject.optInt("wind_gust_direction"),
+                                    wind_gust_speed = oneObject.optDouble("wind_gust_speed"),
+
+                                    condition = oneObject.optString("condition"),
+                                    icon = oneObject.optString("icon")
                                 )
                             )
 
                         } catch (e: JSONException) {
                             // Oops
+                            binding.textviewSecond.text = e.message
                         }
                     }
                 },

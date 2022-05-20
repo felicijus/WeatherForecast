@@ -4,9 +4,7 @@ package com.example.weatherforecast.view
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -22,9 +20,15 @@ class WeatherListAdapter: ListAdapter<Weather, WeatherListAdapter.WeatherViewHol
 
 
     class WeatherViewHolder(itemView: View, weatherItemClickListener: OnItemClickListener, weatherItemLongClickListener: OnItemLongClickListener) : RecyclerView.ViewHolder(itemView){
-        val id: TextView = itemView.findViewById(R.id.weather_id)
-        val temp: TextView = itemView.findViewById(R.id.weather_temp)
-        val summary: TextView = itemView.findViewById(R.id.weather_summary)
+
+        val icon: TextView = itemView.findViewById(R.id.icon)
+
+        val id: TextView = itemView.findViewById(R.id.id)
+        val timestamp: TextView = itemView.findViewById(R.id.timestamp)
+
+        val temperature: TextView = itemView.findViewById(R.id.temperature)
+        val condition: TextView = itemView.findViewById(R.id.condition)
+        val precipitation: TextView = itemView.findViewById(R.id.precipitation)
 
         init {
             itemView.setOnClickListener {
@@ -63,9 +67,15 @@ class WeatherListAdapter: ListAdapter<Weather, WeatherListAdapter.WeatherViewHol
     override fun onBindViewHolder(holder: WeatherViewHolder, position: Int) {
         val current = getItem(position)
 
+        holder.icon.text = current.icon.toString()
+
         holder.id.text = current.id.toString()
-        holder.temp.text = current.temperature.toString()
-        holder.summary.text = current.condition
+        holder.timestamp.text = current.timestamp.toString()
+
+        holder.temperature.text = current.temperature.toString()
+        holder.condition.text = current.condition.toString()
+        holder.precipitation.text = current.precipitation.toString()
+
     }
 
 

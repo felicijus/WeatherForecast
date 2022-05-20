@@ -17,7 +17,7 @@ data class Weather(
     @ColumnInfo val precipitation: String?,
     @ColumnInfo val pressure_msl: Double?,
     @ColumnInfo val sunshine: Int?,
-    @ColumnInfo val temperature: Int?,
+    @ColumnInfo val temperature: Double?,
     @ColumnInfo val wind_direction: Int?,
     @ColumnInfo val wind_speed: Double?,
     @ColumnInfo val cloud_cover: Int?,
@@ -32,7 +32,7 @@ data class Weather(
 
 
     ){
-    constructor(temperature: Int?, condition: String?) : this(
+    constructor(temperature: Double?, condition: String?) : this(
         null,
 
         timestamp = null,
@@ -54,7 +54,7 @@ data class Weather(
         icon = null
         )
 
-    constructor(id: Long?,temperature: Int?, condition: String?) : this(
+    constructor(id: Long?, temperature: Double?, condition: String?) : this(
         id = id,
 
         timestamp = null,

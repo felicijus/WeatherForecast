@@ -51,7 +51,7 @@ class WeatherUpdateDialogFragment(weather:Weather) : DialogFragment(){
         binding.dialogSummary.placeholderText = _weather.condition
 
         binding.dialogBtnSave.setOnClickListener {
-            weatherViewModel.update(Weather(_weather.id, Integer.parseInt(binding.dialogTemp.editText?.text.toString()), binding.dialogSummary.editText?.text.toString()))
+            weatherViewModel.update(Weather(_weather.id, binding.dialogTemp.editText?.text.toString().toDouble(), binding.dialogSummary.editText?.text.toString()))
             dismiss()
         }
         binding.dialogBtnAbort.setOnClickListener {
