@@ -3,6 +3,10 @@ package com.example.weatherforecast.database
 import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 
+// Data access object (DAO)
+// functions as middlemen between the Rest of the app and the Room Database
+// provides methods for crate, read, update and delete
+
 @Dao
 interface WeatherDAO {
 

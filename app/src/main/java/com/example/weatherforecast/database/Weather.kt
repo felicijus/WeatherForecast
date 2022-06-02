@@ -1,18 +1,22 @@
 package com.example.weatherforecast.database
 
-import androidx.annotation.Nullable
+
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.sql.Timestamp
 
 
+// Room Database Entity -> ERM Entity, Attributes equal table header
+// each Object of the data class "Weather" corresponds to a row/dataset in the Room Database
+// Constructors are overloaded for different use cases ->
+// 1. create your own Weather record
+// 2. fetch Weather Data from an Online API
 @Entity
 data class Weather(
-    @PrimaryKey(autoGenerate = true) val id: Long?,//nullable?
+    @PrimaryKey(autoGenerate = true) val id: Long?, // if the primary is null Room will autogenerate primary key
 
 
-    @ColumnInfo val timestamp: String?,
+    @ColumnInfo val timestamp: String?,     // if not specified column name will equal the variable
     @ColumnInfo val source_id: Int?,
     @ColumnInfo val precipitation: String?,
     @ColumnInfo val pressure_msl: Double?,

@@ -12,6 +12,7 @@ class WeatherRepository(private val weatherDao: WeatherDAO)
     // Observed Flow will notify the observer when the data has changed.
     val allWeather: Flow<List<Weather>> = weatherDao.getWeather()
 
+
     // By default Room runs suspend queries off the main thread, therefore, we don't need to
     // implement anything else to ensure we're not doing long running database work
     // off the main thread.

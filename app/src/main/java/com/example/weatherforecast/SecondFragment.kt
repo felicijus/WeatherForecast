@@ -67,7 +67,6 @@ class SecondFragment : Fragment() {
             val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
             val formattedDateTime = currentDateTime.format(formatter)
 
-
             //lat=50.9145917 lon=14.1342216
             //url = "https://api.brightsky.dev/weather?lat=50.9145917&lon=14.1342216&date=2022-05-19"
             val url =

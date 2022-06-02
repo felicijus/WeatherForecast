@@ -79,7 +79,6 @@ class WeatherListAdapter: ListAdapter<Weather, WeatherListAdapter.WeatherViewHol
     }
 
 
-
     //ClickListener
     interface OnItemLongClickListener{
         fun setOnItemLongClickListener(position: Int)
