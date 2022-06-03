@@ -20,7 +20,6 @@ import org.json.JSONException
 import org.json.JSONObject
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-import java.util.*
 
 
 /**
@@ -30,11 +29,10 @@ class SecondFragment : Fragment() {
 
     private var _binding: FragmentSecondBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    // This property is only valid between onCreateView and onDestroyView.
     private val binding get() = _binding!!
 
-
+    // ViewModel access in a Fragment with application wide context
     private val weatherViewModel: WeatherViewModel by activityViewModels {
         WeatherViewModelFactory((activity?.application as WeathersApplication).repository)
     }
@@ -42,7 +40,7 @@ class SecondFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentSecondBinding.inflate(inflater, container, false)
         return binding.root
@@ -60,6 +58,7 @@ class SecondFragment : Fragment() {
             weatherViewModel.deleteAll()
         }
 
+        // Fetch Online Data Button
         binding.buttonFetch.setOnClickListener {
 
             val currentDateTime = LocalDateTime.now()
@@ -67,11 +66,16 @@ class SecondFragment : Fragment() {
             val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
             val formattedDateTime = currentDateTime.format(formatter)
 
-            //lat=50.9145917 lon=14.1342216
-            //url = "https://api.brightsky.dev/weather?lat=50.9145917&lon=14.1342216&date=2022-05-19"
+            // Location based Weather Data Service, hardcoded near my Home
+            // lat=50.9145917 lon=14.1342216
+            // url = "https://api.brightsky.dev/weather?lat=50.9145917&lon=14.1342216&date=2022-05-19"
             val url =
                 "https://api.brightsky.dev/weather?lat=50.9145917&lon=14.1342216&date=$formattedDateTime"
 
+
+            // Demonstration why working with Room is usually very simple once set up
+            // Only the dataclass constructor has to be called to append Data
+            // Please use Android Studio Database Inspector to view the whole Dataset
             val jsonObjectRequest = JsonObjectRequest(
                 Request.Method.GET, url, null,
                 { response ->

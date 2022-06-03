@@ -12,6 +12,7 @@ import com.example.weatherforecast.R
 import com.example.weatherforecast.database.Weather
 
 
+// ListAdapter for presenting List data in a RecyclerView
 class WeatherListAdapter: ListAdapter<Weather, WeatherListAdapter.WeatherViewHolder>(WeathersComparator()) {
 
     private lateinit var weatherItemClickListener: OnItemClickListener
@@ -51,17 +52,12 @@ class WeatherListAdapter: ListAdapter<Weather, WeatherListAdapter.WeatherViewHol
     }
 
 
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WeatherViewHolder {
-
-        val weatherViewHolder:WeatherViewHolder = WeatherViewHolder.create(parent,weatherItemClickListener ,weatherItemLongClickListener)
-
-        /*weatherViewHolder.itemView.setOnLongClickListener {
-            Toast.makeText(weatherViewHolder.itemView.context, "Long click detected", Toast.LENGTH_SHORT).show()
-            return@setOnLongClickListener true
-        }*/
-
-        return weatherViewHolder
+        return WeatherViewHolder.create(
+            parent,
+            weatherItemClickListener,
+            weatherItemLongClickListener
+        )
     }
 
     override fun onBindViewHolder(holder: WeatherViewHolder, position: Int) {
@@ -79,7 +75,7 @@ class WeatherListAdapter: ListAdapter<Weather, WeatherListAdapter.WeatherViewHol
     }
 
 
-    //ClickListener
+    // ClickListener
     interface OnItemLongClickListener{
         fun setOnItemLongClickListener(position: Int)
     }

@@ -12,7 +12,7 @@ import androidx.room.PrimaryKey
 // 1. create your own Weather record
 // 2. fetch Weather Data from an Online API
 @Entity
-data class Weather(
+data class Weather(     // correspond to the table name
     @PrimaryKey(autoGenerate = true) val id: Long?, // if the primary is null Room will autogenerate primary key
 
 

@@ -5,7 +5,9 @@ import com.example.weatherforecast.repository.WeatherRepository
 import com.example.weatherforecast.database.Weather
 import kotlinx.coroutines.launch
 
-
+// ViewModel -> designed to store and manage UI-related data in a lifecycle conscious way
+// allows data to survive configuration changes such as screen rotations.
+// wraps all methods for implementation in the UI
 class WeatherViewModel(private val repository: WeatherRepository): ViewModel() {
 
     val weathers: LiveData<List<Weather>> = repository.allWeather.asLiveData()

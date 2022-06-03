@@ -11,8 +11,7 @@ class WeathersApplication : Application() {
 
     private val applicationScope = CoroutineScope(SupervisorJob())
 
-    // Using by lazy so the database and the repository are only created when they're needed
-    // rather than when the application starts
+    // lazy -> database and repository are only created when they're needed
     val database by lazy { WeatherRoomDatabase.getDatabase(this, applicationScope) }
     val repository by lazy { WeatherRepository(database.weatherDAO) }
 }

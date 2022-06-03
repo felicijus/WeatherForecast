@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
-    //not used -> but ViewModel access in Activity with application wide context
+    // not used -> ViewModel access in an Activity with application wide context
     private val weatherViewModel: WeatherViewModel by viewModels {
         WeatherViewModelFactory((application as WeathersApplication).repository)
     }
@@ -35,24 +35,20 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
+
+        // Floating Button for Inserting Weather Data in the Database
         binding.fab.setOnClickListener {
-            /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()*/
             val weatherDialogFragment = WeatherInsertDialogFragment()
             weatherDialogFragment.show(supportFragmentManager,"weatherInsertDialog")
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)

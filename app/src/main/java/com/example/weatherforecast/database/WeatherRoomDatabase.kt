@@ -21,7 +21,7 @@ abstract class WeatherRoomDatabase : RoomDatabase() {
 
     abstract val weatherDAO: WeatherDAO     // associates a DAO with the Database
 
-    companion object {      // TODO:
+    companion object {      // instance creation
 
         @Volatile
         private var INSTANCE: WeatherRoomDatabase? = null
@@ -35,7 +35,7 @@ abstract class WeatherRoomDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     WeatherRoomDatabase::class.java,
-                    "weather_database"
+                    "weather_database"          // database name
                 )
                     .fallbackToDestructiveMigration()
                     .addCallback(WeatherDatabaseCallback(scope))
@@ -59,6 +59,8 @@ abstract class WeatherRoomDatabase : RoomDatabase() {
             }
         }
 
+        // fill Database with Dummy Data on first initialisation
+        // clear app data and cache for reinitialization
         suspend fun populateDatabase(weatherDao: WeatherDAO) {
             // Delete all content here
             weatherDao.deleteAll()
